@@ -1,9 +1,16 @@
 <?php
 defined( 'BASEPATH' ) OR exit( 'No direct script access allowed' );
 
-class Homepage extends CI_Controller {
+class Process extends CI_Controller {
     
     public function index() {
-        $this->load->view( 'homepage' );
+        $json = json_encode( $this->input->post() );
+        $data = [
+            'data' => $json
+        ];
+        $this->db->insert( 'data', $data );
+
+        $this->session->set_flashdata('response', 'true');
+        redirect( base_url() );
     }
 }
