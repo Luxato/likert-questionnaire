@@ -112,15 +112,70 @@
             </div>
             <div class="bs-component" style="width: 50%; display: block; margin: 20px auto;">
                 <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="33"
+                    <div class="progress-bar" role="progressbar" aria-valuenow="33"
                          aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <div style="text-align: center;">
-                    <div class="tracking"><span class="currentPage">1</span>/2</div>
+                    <div class="tracking"><span class="currentPage">1</span>/3</div>
                 </div>
             </div>
             <form action="<?= base_url() ?>process" method="POST">
                 <div id="tabs">
+                    <div id="tab1" class="animated fadeIn">
+                        <table class="table first table-striped table-hover table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td>1.</td>
+                                    <td>Please state your gender</td>
+                                    <td>
+                                        <div>
+                                            <label style="width:95px;"><h4><i class="fa fa-venus" aria-hidden="true"></i> <strong>Female</strong></h4></label>
+                                            <div class="pretty p-default">
+                                                <input type="checkbox"/>
+                                                <div class="state p-success">
+                                                    <label></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label style="width:95px;"><h4><i class="fa fa-mars" aria-hidden="true"></i> <strong>Male</strong></h4></label>
+                                            <div class="pretty p-default">
+                                                <input type="checkbox"/>
+                                                <div class="state p-success">
+                                                    <label></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1.</td>
+                                    <td>Do you have previous butcher experience?</td>
+                                    <td>
+                                        <div>
+                                            <label style="width:95px;"><h4><strong>Yes</strong></h4></label>
+                                            <div class="pretty p-default">
+                                                <input type="checkbox"/>
+                                                <div class="state p-success">
+                                                    <label></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label style="width:95px;"><h4><strong>No</strong></h4></label>
+                                            <div class="pretty p-default">
+                                                <input type="checkbox"/>
+                                                <div class="state p-success">
+                                                    <label></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
                     <div id="tab1" class="animated fadeIn">
                         <h2 style="display: inline;">Version 1</h2>
                         <table class="table first table-striped table-hover table-bordered">
@@ -469,7 +524,7 @@
                                 <td>
                                     <div class="form-group">
                                         <label><span data-toggle="tooltip" data-placement="top" title=""
-                                                     data-original-title="If you have something more, write it down."
+                                                     data-original-title="If you have something to tell us, please write it down."
                                                      aria-describedby="tooltip700438"><i class="fa fa-question-circle"
                                                                                          aria-hidden="true"></i></span>
                                             General comment field:</label>
@@ -823,11 +878,11 @@
         <div class="col-md-12">
             <div class="bs-component" style="width: 50%; display: block; margin: 0 auto;">
                 <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="33"
+                    <div class="progress-bar" role="progressbar" aria-valuenow="33"
                          aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <div style="text-align: center;">
-                    <div class="tracking"><span class="currentPage">1</span>/2</div>
+                    <div class="tracking"><span class="currentPage">1</span>/3</div>
                 </div>
             </div>
         </div>
@@ -845,6 +900,7 @@
 <script src="assets/bootstrap.min.js"></script>
 <script>
     $(function () {
+        $('.progress-bar').css('width', '33%');
         $('[data-toggle="tooltip"]').tooltip();
         // Give all the inputs and text unique id and name
         var allInputs = $('input, textarea');
@@ -885,11 +941,11 @@
         });
 
         function updateTabs() {
-            // TODO update progress bar
+            $('html, body').animate({scrollTop: '0px'}, 300);
             $('.currentPage').text(currentTab);
             switch (currentTab) {
                 case 1:
-                    $('.progress-bar').css('width', '50%');
+                    $('.progress-bar').css('width', '33%');
                     $('#tab1').show();
                     $('#buttonNext').addClass('showed');
 
@@ -901,7 +957,7 @@
                     $('#tab3').hide();
                     break;
                 case 2:
-                    /*$('.progress-bar').css('width', '100%');
+                    $('.progress-bar').css('width', '66%');
                     $('#tab2').removeClass('fadeIn');
                     $('#tab2').show();
                     $('#tab2').addClass('fadeIn');
@@ -912,9 +968,9 @@
                     $('#tab1').hide();
                     $('#tab3').hide();
                     $('#buttonSubmit').hide();
-                    $('#buttonSubmit').removeClass('showed');*/
+                    $('#buttonSubmit').removeClass('showed');
 
-                    $('.progress-bar').css('width', '100%');
+                    /*$('.progress-bar').css('width', '100%');
                     $('#tab2').removeClass('fadeIn');
                     $('#tab2').show();
                     $('#tab2').addClass('fadeIn');
@@ -922,14 +978,16 @@
 
                     $('#buttonNext').removeClass('showed');
                     $('#buttonNext').hide();
-                    $('#tab1').hide();
+                    $('#tab1').hide();*/
                     break;
-                case 4:
+                case 3:
                     $('.progress-bar').css('width', '100%');
                     $('#tab3').removeClass('fadeIn');
                     $('#tab3').show();
                     $('#tab3').addClass('fadeIn');
                     $('#buttonBack').addClass('showed');
+                    $('#buttonSubmit').show();
+                    $('#buttonSubmit').addClass('showed');
 
                     $('#buttonNext').removeClass('showed');
                     $('#buttonNext').hide();
